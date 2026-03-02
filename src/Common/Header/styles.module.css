@@ -1,0 +1,9 @@
+.headernav {
+    position: fixed;
+    top: 0px;
+    background: #090909a8;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    z-index: 999;
+    padding-bottom: 25px;
+}

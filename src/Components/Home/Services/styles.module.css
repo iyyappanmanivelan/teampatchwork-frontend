@@ -1,0 +1,104 @@
+.servicesec {
+    position: relative;
+    background: #050505;
+}
+
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.servicecard {
+    background: rgba(20, 20, 20, 0.5);
+    border: 1px solid #222;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Tactical Corners */
+.servicecard::before,
+.servicecard::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: all 0.4s ease;
+    opacity: 0.5;
+}
+
+.servicecard::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+}
+
+.servicecard::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid #555;
+    border-right: 2px solid #555;
+}
+
+.servicecard:hover {
+    background: rgba(229, 9, 20, 0.05);
+    border-color: #E50914;
+    transform: translateY(-5px);
+}
+
+.servicecard:hover::before {
+    border-color: #E50914;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.servicecard:hover::after {
+    border-color: #E50914;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.servicecard h4 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+.servicecard p {
+    color: #888;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.servicecard:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .servicesGrid {
+        grid-template-columns: 1fr;
+    }
+
+}

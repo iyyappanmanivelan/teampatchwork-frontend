@@ -1,0 +1,16 @@
+.text_type {
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.text_type__cursor {
+    margin-left: 0.25rem;
+    display: inline-block;
+    opacity: 1;
+}
+
+.text_type__cursor__hidden {
+    display: none;
+}

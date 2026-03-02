@@ -1,0 +1,52 @@
+.scroll_stack_scroller {
+  position: relative;
+  width: 100%;
+  /* Removed height: 100% and overflow-y: auto to allow window scrolling */
+  /* height: 100%; */
+  /* overflow-y: auto; */
+  overflow-x: visible;
+  /* overscroll-behavior: contain; */
+  /* -webkit-overflow-scrolling: touch; */
+  scroll-behavior: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.scroll_stack_inner {
+  /* padding: 20vh 5rem 50rem; */
+  /* min-height: 100vh; */
+}
+
+.scroll_stack_card_wrapper {
+  position: sticky;
+  top: 20vh;
+  margin-bottom: 20vh;
+  /* space between unstuck cards */
+}
+
+.scroll_stack_card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  min-height: 20rem;
+  /* Changed to min-height for flexible content */
+  width: 100%;
+  /* margin: 30px 0; Removed to let wrapper handle spacing */
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+  background: transparent;
+  /* Changed from white to transparent to allow child backgrounds */
+  /* Ensure background is visible */
+}
+
+.scroll_stack_end {
+  width: 100%;
+  height: 1px;
+}

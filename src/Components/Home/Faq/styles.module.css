@@ -1,0 +1,145 @@
+
+
+.farWrapper .row {
+    align-items: center;
+}
+
+.accordionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.accordionItem {
+    background: #0a0a0a;
+    border: 2px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordionItem:hover {
+    border-color: rgba(229, 9, 20, 0.4);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.1);
+}
+
+.accordionItem.active {
+    border-color: rgba(229, 9, 20, 0.6);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.2);
+}
+
+.accordionButton {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.accordionButton:hover {
+    background: rgba(229, 9, 20, 0.05);
+}
+
+.questionNumber {
+    color: #E50914;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-width: 45px;
+}
+
+.questionText {
+    flex: 1;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    transition: all 0.3s ease;
+}
+
+.iconWrapper:hover {
+    background: rgba(229, 9, 20, 0.2);
+    border-color: #E50914;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+.iconOpen {
+    transform: rotate(180deg);
+}
+
+.accordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.contentOpen {
+    max-height: 500px;
+}
+
+.accordionBody {
+    padding: 0 30px 25px 90px;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+    border-top: 1px solid rgba(229, 9, 20, 0.1);
+    padding-top: 20px;
+    margin-top: 5px;
+}
+
+.imgWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgWrapper img {
+    height: auto;
+    max-height: 600px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@media (max-width: 992px) {
+    .accordionBody {
+        padding-left: 30px;
+    }
+
+    .questionText {
+        font-size: 18px;
+    }
+
+    .questionNumber {
+        font-size: 20px;
+        min-width: 40px;
+    }
+
+    .imgWrapper {
+        margin-top: 40px;
+    }
+
+    .imgWrapper img {
+        max-height: 400px;
+    }
+}

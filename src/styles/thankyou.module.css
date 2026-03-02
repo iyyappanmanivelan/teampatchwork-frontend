@@ -1,0 +1,57 @@
+.thankYouMain {
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contentWrapper {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border: 1px solid #222;
+    border-top: 1px solid #E50914;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.description {
+    color: #ccc;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.homeBtn {
+    display: inline-block;
+    background: #E50914;
+    color: #fff;
+    padding: 15px 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    transition: all 0.3s ease;
+}
+
+.homeBtn:hover {
+    background: #b20710;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(229, 9, 20, 0.4);
+}

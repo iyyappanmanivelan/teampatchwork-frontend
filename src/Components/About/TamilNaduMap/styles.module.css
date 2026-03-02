@@ -1,0 +1,247 @@
+.mapSection {
+    padding: 120px 0;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.subtitle {
+    color: #E50914;
+    letter-spacing: 4px;
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+    font-weight: 600;
+}
+
+.perspectiveContainer {
+    perspective: 1500px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.mapWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.isometricMap {
+    position: absolute;
+    inset: 0;
+}
+
+.tnImage {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/about/tn_map_tactical.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(1.2) contrast(1.1) saturate(1.2);
+    /* Adding a subtle glow to the map edges */
+    filter: drop-shadow(0 0 30px rgba(229, 9, 20, 0.2));
+}
+
+.mapGrid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(229, 9, 20, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(229, 9, 20, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+/* Wireframe Lines */
+.connectionsSvg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.connectionLine {
+    stroke: rgba(229, 9, 20, 0.4);
+    stroke-width: 0.8;
+    fill: none;
+    stroke-dasharray: 4;
+    animation: dashLine 20s linear infinite;
+}
+
+@keyframes dashLine {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
+/* Front-Standing Hotspots */
+.hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pinWrapper {
+    position: relative;
+}
+
+.markerPoint {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 3px solid #E50914;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 0 20px #E50914;
+}
+
+.pulseDisk {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(229, 9, 20, 0.2);
+    border: 1px solid #E50914;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: flatPulse 2.5s infinite ease-out;
+}
+
+@keyframes flatPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+}
+
+.labelWrapper {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 151px;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-left: 3px solid #E50914;
+    padding: 10px 15px;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.hotspot:hover .labelWrapper {
+    opacity: 1;
+}
+
+.spotType {
+    font-size: 8px;
+    color: #E50914;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.spotName {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 1px;
+    display: block;
+}
+
+/* Tactical HUD */
+.tacticalHud {
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 250px;
+    font-family: monospace;
+    transform: translateZ(50px);
+}
+
+.hudHeader {
+    color: #E50914;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 12px;
+}
+
+.hudRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.active {
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.scanLine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(229, 9, 20, 0.05), transparent);
+    width: 200px;
+    animation: scan3d 10s infinite linear;
+    pointer-events: none;
+    transform: translateZ(10px);
+}
+
+@keyframes scan3d {
+    0% {
+        transform: translateX(-100%) translateZ(10px);
+    }
+
+    100% {
+        transform: translateX(500%) translateZ(10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .perspectiveContainer {
+        padding-top: 5rem;
+    }
+
+    .mapWrapper {
+        transform: rotateX(30deg) rotateZ(0deg) scale(0.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .labelWrapper {
+        display: none;
+    }
+
+    .tacticalHud {
+        display: none;
+    }
+}

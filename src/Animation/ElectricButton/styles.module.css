@@ -1,0 +1,13 @@
+.electric_btn {
+  position: relative;
+  background: linear-gradient(120deg, #ff0000, #000);
+  border-radius: 50px;
+  overflow: hidden;
+  width: fit-content;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  color: #ffff;
+  letter-spacing: 2px;
+}

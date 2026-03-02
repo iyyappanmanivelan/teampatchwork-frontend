@@ -1,0 +1,54 @@
+.bannersec {
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    /* Added Flexbox */
+    align-items: center;
+    justify-content: center;
+}
+
+.introvideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.introvideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.introWrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.descWrapper {
+    max-width: 800px;
+}
+
+.descWrapper p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}

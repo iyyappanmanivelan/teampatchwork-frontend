@@ -1,0 +1,220 @@
+.teamSection {
+    background: #000;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    padding: 6rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.teamSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, transparent 20%, #000 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.carouselContainer {
+    position: relative;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.carouselTrack {
+    position: relative;
+    width: 320px;
+    /* Slightly wider */
+    height: 480px;
+    /* Taller */
+    transform-style: preserve-3d;
+}
+
+.teamCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    border-radius: 12px;
+    /* Sharper corners for tactical feel */
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.activeCard {
+    border-color: #E50914;
+    box-shadow: 0 0 40px rgba(229, 9, 20, 0.3);
+    z-index: 50 !important;
+    /* Ensure active is always top */
+}
+
+/* Full height image wrapper */
+.imageWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.memberImage {
+    object-fit: cover;
+    object-position: top center;
+    /* Focus on faces */
+    transition: transform 0.6s ease;
+}
+
+.activeCard .memberImage {
+    transform: scale(1.05);
+    /* Slight zoom on active */
+}
+
+/* Scanner Effects */
+.scannerLine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #E50914;
+    box-shadow: 0 0 15px #E50914;
+    animation: scan 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+.scannerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(229, 9, 20, 0.15) 0%, transparent 40%);
+    animation: scanOverlay 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+    z-index: 9;
+}
+
+@keyframes scan {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes scanOverlay {
+    0% {
+        top: -40%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* Info Box - Overlay Style */
+.infoBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.9) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    /* Left align for cinematic feel */
+    z-index: 20;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.activeCard .infoBox {
+    transform: translateY(0);
+}
+
+.memberName {
+    font-family: "Bebas Neue", sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 0.9;
+}
+
+.memberRole {
+    font-size: 0.85rem;
+    color: #E50914;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Navigation Controls */
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    z-index: 30;
+}
+
+.navBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+.navBtn:hover {
+    background: #E50914;
+    border-color: #E50914;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .carouselTrack {
+        width: 260px;
+        height: 400px;
+    }
+
+    .memberName {
+        font-size: 1.6rem;
+    }
+}

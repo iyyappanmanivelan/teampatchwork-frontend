@@ -1,0 +1,160 @@
+.section {
+    background: #000;
+    padding: 6rem 0;
+    position: relative;
+    border-top: 1px solid #111;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.valueCard {
+    background: #050505;
+    position: relative;
+    height: 320px;
+    perspective: 1000px;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    border: 1px solid #222;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.valueCard:hover .cardInner {
+    border-color: #333;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #0f0f0f;
+}
+
+/* Tactical Corners */
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.cornerTL {
+    top: 0;
+    left: 0;
+    border-top-color: #333;
+    border-left-color: #333;
+}
+
+.cornerTR {
+    top: 0;
+    right: 0;
+    border-top-color: #333;
+    border-right-color: #333;
+}
+
+.cornerBL {
+    bottom: 0;
+    left: 0;
+    border-bottom-color: #333;
+    border-left-color: #333;
+}
+
+.cornerBR {
+    bottom: 0;
+    right: 0;
+    border-bottom-color: #333;
+    border-right-color: #333;
+}
+
+.valueCard:hover .cornerTL,
+.valueCard:hover .cornerTR,
+.valueCard:hover .cornerBL,
+.valueCard:hover .cornerBR {
+    border-color: #E50914;
+    width: 20px;
+    height: 20px;
+}
+
+.iconBox {
+    color: #444;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.valueCard:hover .iconBox {
+    color: #E50914;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.4));
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.cardTitle {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0 0 1rem 0;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.divider {
+    width: 40px;
+    height: 2px;
+    background: #222;
+    margin-bottom: 1rem;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.valueCard:hover .divider {
+    width: 60px;
+    background: #E50914;
+}
+
+.cardDesc {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.valueCard:hover .cardDesc {
+    color: #ccc;
+}
+
+.indexNumber {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #111;
+    line-height: 1;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.valueCard:hover .indexNumber {
+    color: rgba(229, 9, 20, 0.05);
+    transform: scale(1.2);
+}

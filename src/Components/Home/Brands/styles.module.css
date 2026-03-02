@@ -1,0 +1,49 @@
+.brandsec {
+    position: relative;
+    width: 100%;
+    padding: 3rem 0;
+    background: #000;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+}
+
+.brandslider {
+    width: 100%;
+    max-width: 100%;
+}
+
+.brandcard {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: all 0.3s ease; */
+}
+
+.brandcard h4 {
+    color: #444;
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.brandcard:hover h4 {
+    color: #E50914;
+    text-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+/* Slick Customization for Marquee */
+.brandslider :global(.slick-track) {
+    display: flex;
+    align-items: center;
+}
+
+.brandslider :global(.slick-slide) {
+    padding: 0 40px;
+}

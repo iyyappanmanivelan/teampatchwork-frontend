@@ -1,0 +1,191 @@
+.formSection {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid #333;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tactical Corner Markers for Form Container */
+.formSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #E50914;
+    border-left: 2px solid #E50914;
+}
+
+.formSection::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #E50914;
+    border-right: 2px solid #E50914;
+}
+
+.formTitle {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.formSubtitle {
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    border-left: 3px solid #E50914;
+    padding-left: 1rem;
+}
+
+.contactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    position: relative;
+}
+
+.inputGroup label {
+    font-family: "Bebas Neue", sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.inputGroup:focus-within label {
+    color: #E50914;
+    opacity: 1;
+}
+
+/* HUD Input Style */
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    border-bottom: 2px solid #444;
+    color: #fff;
+    padding: 16px;
+    font-family: sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.inputGroup input::placeholder,
+.inputGroup select::placeholder,
+.inputGroup textarea::placeholder {
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+    background: rgba(229, 9, 20, 0.05);
+    border-color: #E50914;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-bottom-color: #E50914;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+.errorInput {
+    border-color: #ff3333 !important;
+    background: rgba(255, 51, 51, 0.1) !important;
+}
+
+.errorText {
+    color: #ff3333;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submitWrapper {
+    grid-column: span 2;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Replicate Electric Button Style manually since component is reverted */
+.submitBtn {
+    background: linear-gradient(120deg, #E50914, #000);
+    color: #fff;
+    border: none;
+    padding: 16px 50px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    /* Electric style */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.submitBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.submitBtn:hover::before {
+    left: 100%;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+}
+
+@media (max-width: 768px) {
+    .formSection {
+        padding: 1.5rem;
+    }
+
+    .contactForm {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .fullWidth {
+        grid-column: span 1;
+    }
+
+    .submitWrapper {
+        grid-column: span 1;
+    }
+}

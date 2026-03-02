@@ -1,0 +1,154 @@
+
+
+.testimonialSlide {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonialCard {
+    background: linear-gradient(135deg, #1a1a1a 0%, #15171c 100%);
+    border: 2px solid rgba(229, 9, 20, 0.3);
+    border-radius: 16px;
+    padding: 50px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+}
+
+.testimonialCard:hover {
+    border-color: rgba(229, 9, 20, 0.6);
+    box-shadow: 0 12px 40px rgba(229, 9, 20, 0.2);
+    transform: translateY(-5px);
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    opacity: 0.3;
+}
+
+.feedback {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+    text-align: center;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.clientInfo {
+    text-align: center;
+    border-top: 1px solid rgba(229, 9, 20, 0.2);
+    padding-top: 25px;
+}
+
+.clientName {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+}
+
+.clientRole {
+    color: #E50914;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Custom Navigation Arrows */
+.sliderArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(229, 9, 20, 0.2);
+    border: 2px solid rgba(229, 9, 20, 0.4);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: #E50914;
+}
+
+.sliderArrow:hover {
+    background: rgba(229, 9, 20, 0.3);
+    border-color: #E50914;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prevArrow {
+    left: -80px;
+}
+
+.nextArrow {
+    right: -80px;
+}
+
+@media (max-width: 992px) {
+    .prevArrow {
+        left: 10px;
+    }
+
+    .nextArrow {
+        right: 10px;
+    }
+}
+
+/* Custom Dots */
+.customDots {
+    bottom: -50px !important;
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+}
+
+.customDots li {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.customDots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #666;
+    border: none;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.customDots li button:before {
+    display: none;
+}
+
+.customDots li:hover button {
+    background: rgba(229, 9, 20, 0.6);
+    transform: scale(1.2);
+}
+
+.customDots li.slick-active button {
+    width: 16px;
+    height: 16px;
+    background: #E50914;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.8);
+}

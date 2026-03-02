@@ -1,28 +1,69 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
-  max-width: 100vw;
+  width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
+  font-family: "Bebas Neue", sans-serif !important;
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 50% -20%, #1a1a1a 0%, transparent 50%),
+    radial-gradient(circle at 50% 120%, #1a1a1a 0%, transparent 50%);
+  color: #ffffff;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1 {
+  font-size: clamp(80px, 15vw, 220px);
+  letter-spacing: -0.02em;
+  line-height: 0.85;
 }
+
+h2 {
+  font-size: clamp(60px, 10vw, 150px);
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+}
+
+h3 {
+  font-size: clamp(40px, 8vw, 100px);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+h4 {
+  font-size: clamp(30px, 5vw, 60px);
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+h5 {
+  font-size: clamp(20px, 3vw, 40px);
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+}
+
+h6 {
+  font-size: clamp(16px, 2vw, 24px);
+  letter-spacing: 0.3em;
+  line-height: 1.3;
+}
+
+p {
+  margin-bottom: 0px;
+  font-family: sans-serif;
+  /* Keep body text readable */
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.sectiongap {
+  padding: 6rem 0px;
+}
+
+.section-title {
+  margin-bottom: 60px;
+}
+
 
 * {
   box-sizing: border-box;
@@ -35,8 +76,377 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.accordion-button {
+  color: #000 !important;
+}
+
+
+.accordion-button:not(.collapsed) {
+  color: #0000;
+  background-color: #ffff;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+
+.accordion-button:focus {
+  z-index: none !important;
+  border-color: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+
+.intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.intro p {
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+
+/* ------------------------------- PILLNAV ANIMATION ------------- */
+
+
+
+.pill-nav {
+  --nav-h: 42px;
+  --logo: 36px;
+  --pill-pad-x: 18px;
+  --pill-gap: 3px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .pill-nav {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: transparent;
   }
+}
+
+.pill-nav-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--nav-h);
+  /* background: var(--base, #000); */
+  border-radius: 9999px;
+}
+
+.pill-logo {
+  overflow: hidden;
+  position: relative;
+}
+
+
+.pill-logo img {
+  width: 170px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.pill-logo:hover img {
+  opacity: 1;
+}
+
+/* Cinematic Flash Effect */
+.logo-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 3px;
+  height: 100%;
+}
+
+.pill-list>li {
+  display: flex;
+  height: 100%;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--pill-pad-x);
+  text-decoration: none;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+}
+
+.pill .hover-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--base, #000);
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pill .label-stack {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  z-index: 2;
+}
+
+.pill .pill-label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 1;
+  will-change: transform;
+}
+
+.pill .pill-label-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--hover-text, #fff);
+  z-index: 3;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.pill.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #E50914;
+  border-radius: 50px;
+  z-index: 4;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.6), 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}
+
+.mobile-menu-button {
+  width: var(--nav-h);
+  height: var(--nav-h);
+  border-radius: 50%;
+  background: var(--base, #000);
+  border: none;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex;
+  }
+}
+
+.hamburger-line {
+  width: 16px;
+  height: 2px;
+  background: var(--pill-bg, #fff);
+  border-radius: 1px;
+  transition: all 0.01s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-popover {
+  position: absolute;
+  top: 3em;
+  left: 1rem;
+  right: 1rem;
+  background: var(--base, #f0f0f0);
+  border-radius: 27px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 998;
+  opacity: 0;
+  transform-origin: top center;
+  visibility: hidden;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mobile-menu-popover .mobile-menu-link {
+  display: block;
+  padding: 12px 16px;
+  color: var(--pill-text, #fff);
+  background-color: var(--pill-bg, #fff);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-popover .mobile-menu-link:hover {
+  cursor: pointer;
+  background-color: var(--base);
+  color: var(--hover-text, #fff);
+}
+
+
+
+.clover img {
+  width: 180px;
+  /* height: 180px; */
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+
+  clip-path: polygon(35% 0%, 50% 15%, 65% 0%,
+      100% 35%, 85% 50%, 100% 65%,
+      65% 100%, 50% 85%, 35% 100%,
+      0% 65%, 15% 50%, 0% 35%);
+}
+
+/* ===== TACTICAL CINEMATIC UTILITIES ===== */
+
+/* Tactical Background Grid */
+.tactical-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tactical Scanning Animation Removed per user request */
+
+/* HUD Corner Markers */
+.hud-corners {
+  position: absolute;
+  inset: 2rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: #E50914;
+  border-style: solid;
+  opacity: 0.3;
+}
+
+.hud-corner.top-left {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.hud-corner.top-right {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+
+.hud-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+
+.hud-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Tactical Red Divider */
+.tactical-divider {
+  width: 100px;
+  height: 4px;
+  background: #E50914;
+  margin: 2rem auto;
+}
+
+
+
+/* Red Glow Effect */
+.red-glow {
+  text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+  color: #E50914;
+}
+
+/* Tactical Container */
+.tactical-container {
+  position: relative;
+  overflow: hidden;
 }

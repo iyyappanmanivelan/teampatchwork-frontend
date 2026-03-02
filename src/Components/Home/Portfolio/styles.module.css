@@ -1,0 +1,74 @@
+.overlayWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%);
+    transition: width 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.cardWrapper:hover {
+    border-color: rgba(229, 9, 20, 0.6);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.3);
+    transform: translateY(-8px);
+}
+
+.cardWrapper:hover .overlayWrapper {
+    width: 100%;
+}
+
+
+.textLayer {
+    position: absolute;
+    left: 7%;
+    bottom: 7%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.2s;
+    z-index: 10;
+}
+
+.cardWrapper:hover .textLayer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.textLayer h6 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.textLayer h4 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 1px;
+}
+
+.portfolioImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cardWrapper:hover .portfolioImage {
+    transform: scale(1.1);
+}

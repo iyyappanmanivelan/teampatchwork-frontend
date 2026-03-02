@@ -1,0 +1,102 @@
+/* Asymmetric Layout Styles */
+
+.statementWrapper {
+    padding-right: 2rem;
+}
+
+.overline {
+    color: #E50914;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.statementTitle {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.redText {
+    color: #E50914;
+}
+
+.statementDesc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #999;
+    margin-bottom: 2rem;
+    max-width: 450px;
+}
+
+.decorativeLine {
+    width: 80px;
+    height: 4px;
+    background: #E50914;
+}
+
+/* Right Side Grid */
+.statGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.statCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-5px);
+    border-color: #E50914;
+    background: rgba(229, 9, 20, 0.05);
+}
+
+.statNumber {
+    font-size: clamp(60px, 6vw, 90px);
+    font-family: "Bebas Neue", sans-serif;
+    color: #fff;
+    /* Solid white, no outline */
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: #aaa;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+    .statementWrapper {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .statementDesc {
+        margin: 0 auto 2rem;
+    }
+
+    .decorativeLine {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .statGrid {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+        gap: 1rem;
+    }
+}
